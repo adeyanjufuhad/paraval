@@ -15,11 +15,30 @@ export function ScrollFx() {
     const root = document.documentElement;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Section readout: the last section label above the middle of the screen
+    const labels = [...document.querySelectorAll<HTMLElement>("[data-hud]")];
+    const total = String(labels.length - 1).padStart(2, "0");
+    let current = "";
+    const updateHud = () => {
+      const mid = window.innerHeight / 2;
+      let hit: HTMLElement | undefined;
+      for (const l of labels) {
+        if (l.getBoundingClientRect().top < mid) hit = l;
+        else break;
+      }
+      const hud = hit?.dataset.hud ?? "";
+      if (hud === current) return;
+      current = hud;
+      const [index, ...rest] = hud.split(" ");
+      setHud(hud ? { index, label: rest.join(" "), total } : null);
+    };
+
     const write = (y: number) => {
       const max = root.scrollHeight - window.innerHeight;
       root.style.setProperty("--sy", String(Math.round(y)));
       root.style.setProperty("--sp", String(max > 0 ? Math.min(1, y / max) : 0));
       root.toggleAttribute("data-scrolled", y > window.innerHeight * 0.6);
+      updateHud();
     };
 
     let lenis: Lenis | null = null;
@@ -48,26 +67,10 @@ export function ScrollFx() {
     };
     document.addEventListener("click", onClick);
 
-    // Section readout: the label nearest the middle of the screen wins
-    const labels = [...document.querySelectorAll<HTMLElement>("[data-hud]")];
-    const total = String(labels.length - 1).padStart(2, "0");
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (!e.isIntersecting) continue;
-          const [index, ...rest] = (e.target as HTMLElement).dataset.hud!.split(" ");
-          setHud({ index, label: rest.join(" "), total });
-        }
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    labels.forEach((l) => io.observe(l));
-
     return () => {
       lenis?.destroy();
       window.removeEventListener("scroll", onNativeScroll);
       document.removeEventListener("click", onClick);
-      io.disconnect();
     };
   }, []);
 
