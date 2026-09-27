@@ -27,7 +27,7 @@ export function HowItWorks() {
   return (
     <section id="how" className="mx-auto max-w-7xl scroll-mt-10 px-4 py-24 sm:px-8 sm:py-32">
       <div data-reveal>
-        <SectionLabel index="02">How it works</SectionLabel>
+        <SectionLabel index="04">How it works</SectionLabel>
         <h2 className="display mt-8 max-w-3xl text-[2.6rem] sm:text-6xl">
           Two sides. <em>One loop.</em>
         </h2>

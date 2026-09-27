@@ -34,7 +34,7 @@ export function Offer() {
     <section id="offer" className="mx-auto max-w-7xl scroll-mt-10 px-4 py-24 sm:px-8 sm:py-32">
       <div data-reveal className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
         <div>
-          <SectionLabel index="03">What we offer</SectionLabel>
+          <SectionLabel index="06">What we offer</SectionLabel>
           <h2 className="display mt-8 max-w-3xl text-[2.6rem] sm:text-6xl">
             Human data, <em>measured</em> from every angle.
           </h2>

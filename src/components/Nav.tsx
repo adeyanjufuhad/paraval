@@ -1,10 +1,11 @@
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "#problem", label: "Why" },
+  { href: "#about", label: "About" },
   { href: "#how", label: "How it works" },
   { href: "#offer", label: "For AI teams" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#benchmark", label: "Benchmark" },
+  { href: "#vision", label: "Vision" },
 ];
 
 export function Nav() {

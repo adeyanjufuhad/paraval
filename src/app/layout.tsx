@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import { Reveal } from "@/components/Reveal";
+import { ScrollFx } from "@/components/ScrollFx";
 import { Spotlight } from "@/components/Spotlight";
 import { site } from "@/lib/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -70,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="grain" aria-hidden />
         <Reveal />
         <Spotlight />
+        <ScrollFx />
       </body>
     </html>
   );

@@ -211,6 +211,8 @@ export default function OrbitScene({ onReady }: { onReady?: () => void }) {
       // Pull back on narrow screens so the whole ring fits
       const narrow = w / h < 1;
       camY = narrow ? 0.6 : 0.4;
+      // On phones the buttons sit lower, so the ring does too
+      orbit.position.y = narrow ? -radius - 2.3 : -radius - 1.15;
       camera.position.set(0, camY, narrow ? 15.5 : 10.5);
       camera.fov = narrow ? 36 : 32;
       camera.updateProjectionMatrix();

@@ -32,7 +32,7 @@ export function Faq() {
     <section id="faq" className="mx-auto max-w-7xl scroll-mt-10 px-4 py-24 sm:px-8 sm:py-32">
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div data-reveal>
-          <SectionLabel index="07">FAQ</SectionLabel>
+          <SectionLabel index="12">FAQ</SectionLabel>
           <h2 className="display mt-8 text-[2.6rem] sm:text-6xl">
             Questions, <em>answered.</em>
           </h2>

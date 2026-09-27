@@ -36,7 +36,7 @@ export function Waitlist() {
 
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div data-reveal>
-          <SectionLabel index="06">Join the waitlist</SectionLabel>
+          <SectionLabel index="11">Join the waitlist</SectionLabel>
           <h2 className="display mt-8 text-[2.8rem] sm:text-6xl lg:text-7xl">
             Be among <em>the first.</em>
           </h2>

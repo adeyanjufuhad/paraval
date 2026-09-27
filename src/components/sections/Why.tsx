@@ -27,7 +27,7 @@ export function Why() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-8 sm:py-32">
       <div data-reveal>
-        <SectionLabel index="05">Why Paraval</SectionLabel>
+        <SectionLabel index="08">Why Paraval</SectionLabel>
         <h2 className="display mt-8 max-w-3xl text-[2.6rem] sm:text-6xl">
           Built on <em>trust,</em> both ways.
         </h2>

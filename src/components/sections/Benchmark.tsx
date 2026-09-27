@@ -22,6 +22,51 @@ function Orbits() {
   );
 }
 
+// The real leaderboard layout, with scores hidden until results are published
+const cols = ["Yoruba", "Hausa", "Igbo", "Pidgin", "Everyday"];
+const widths = [[62, 48, 55, 71, 44], [58, 51, 47, 66, 52], [49, 40, 43, 60, 39], [41, 35, 38, 52, 33], [37, 30, 34, 49, 31], [33, 28, 29, 45, 27]];
+
+function Leaderboard() {
+  return (
+    <div className="relative mt-12 overflow-hidden rounded-2xl border border-line bg-ink/70 backdrop-blur">
+      <div className="flex items-center justify-between border-b border-line px-5 py-3.5">
+        <p className="text-[12px] text-paper/70">Leaderboard preview</p>
+        <p className="flex items-center gap-2 text-[11px] text-paper/45">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-paper/70" /> Results coming soon
+        </p>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[34rem] text-left text-[12px]">
+          <thead className="text-paper/40">
+            <tr>
+              <th className="px-5 py-3 font-normal">#</th>
+              <th className="px-2 py-3 font-normal">Model</th>
+              {cols.map((c) => (
+                <th key={c} className="px-2 py-3 font-normal">{c}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {models.map((m, r) => (
+              <tr key={m} className="border-t border-line">
+                <td className="px-5 py-3 text-paper/40">{r + 1}</td>
+                <td className="px-2 py-3 text-paper/85">{m}</td>
+                {widths[r].map((w, c) => (
+                  <td key={c} className="px-2 py-3">
+                    <div aria-label="Score hidden" className="h-1.5 w-16 overflow-hidden rounded-full bg-white/[0.06]">
+                      <div className="h-full rounded-full bg-paper/50 blur-[2px]" style={{ width: `${w}%` }} />
+                    </div>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export function Benchmark() {
   const [state, action, pending] = useActionState<FormState, FormData>(joinBenchmarkUpdates, { status: "idle" });
 
@@ -30,7 +75,7 @@ export function Benchmark() {
       <div data-reveal className="relative overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-white/[0.07] via-white/[0.02] to-transparent p-7 sm:p-14">
         <Orbits />
         <div className="relative max-w-2xl">
-          <SectionLabel index="04">The Paraval Benchmark · Coming soon</SectionLabel>
+          <SectionLabel index="07">The Paraval Benchmark · Coming soon</SectionLabel>
           <h2 className="display mt-8 text-[2.5rem] sm:text-6xl">
             How well do today&apos;s top AI models understand <em>Nigeria?</em>
           </h2>
@@ -85,6 +130,9 @@ export function Benchmark() {
               )}
             </form>
           )}
+        </div>
+        <div className="relative">
+          <Leaderboard />
         </div>
       </div>
     </section>

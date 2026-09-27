@@ -19,7 +19,7 @@ export function Problem() {
   return (
     <section id="problem" className="mx-auto max-w-7xl scroll-mt-10 px-4 py-24 sm:px-8 sm:py-36">
       <div data-reveal>
-        <SectionLabel index="01">The problem</SectionLabel>
+        <SectionLabel index="02">The problem</SectionLabel>
         <h2 className="display mt-8 max-w-4xl text-[2.6rem] sm:text-6xl">
           Where today&apos;s AI gets it <em>wrong.</em>
         </h2>

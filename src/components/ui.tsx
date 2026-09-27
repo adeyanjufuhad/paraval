@@ -46,7 +46,7 @@ export function SubmitButton({ children, pending }: { children: ReactNode; pendi
 
 export function SectionLabel({ index, children }: { index: string; children: ReactNode }) {
   return (
-    <p className="eyebrow flex items-center gap-3">
+    <p className="eyebrow flex items-center gap-3" data-hud={typeof children === "string" ? `${index} ${children}` : undefined}>
       <span className="text-paper/70">({index})</span>
       <span className="h-px w-8 bg-white/20" />
       {children}
